@@ -1,7 +1,3 @@
-
-
-use std::hash;
-
 use crate::Board;
 use crate::board::*;
 
@@ -81,7 +77,7 @@ impl AI for Board {
                         }
                     },
                     2 => {
-                        let val = (self.get_bishop_attacks(square as i32, self.occupancies[Side::WHITE as usize])).count_ones();
+                        let val = (self.get_bishop_attacks(square as usize, self.occupancies[Side::WHITE as usize])).count_ones();
                         mg_score += val as i32;
                         eg_score += (val as f32 * 1.1) as i32;
                     },
@@ -96,7 +92,7 @@ impl AI for Board {
                         }
                     },
                     4 => {
-                        let val = self.get_queen_attacks(square as i32, self.occupancies[Side::BOTH as usize]).count_ones();
+                        let val = self.get_queen_attacks(square as usize, self.occupancies[Side::BOTH as usize]).count_ones();
                         mg_score += val as i32;
                         eg_score += (val as f32 * 1.1) as i32;
 
@@ -138,7 +134,7 @@ impl AI for Board {
                         }
                     },
                     8 => {
-                        let val = (self.get_bishop_attacks(square as i32, self.occupancies[Side::WHITE as usize])).count_ones();
+                        let val = (self.get_bishop_attacks(square as usize, self.occupancies[Side::WHITE as usize])).count_ones();
                         mg_score += val as i32;
                         eg_score += (val as f32 * 1.1) as i32;
                     },
@@ -153,7 +149,7 @@ impl AI for Board {
                         }
                     },
                     10 => {
-                        let val = self.get_queen_attacks(square as i32, self.occupancies[Side::BOTH as usize]).count_ones();
+                        let val = self.get_queen_attacks(square as usize, self.occupancies[Side::BOTH as usize]).count_ones();
                         mg_score += val as i32;
                         eg_score += (val as f32 * 1.1) as i32;
                     },
